@@ -3,72 +3,68 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Assignment.Models;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using APIAssignment.Models;
 
-namespace Assignment1.Controllers
+namespace APIAssignment.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class ValuesController : ControllerBase
     {
-        // GET: api/Student
+        public int Id { get; private set; }
+
+        
+        // GET api/values/  
         [HttpGet]
-        public string testAction()
+        public ActionResult<string> GetTestValue()
         {
-            return "Test successful";
-        }
+            StreamReader r = new StreamReader(@"C:\Users\mayank.aggarwal\source\repos\APIAssignment\APIAssignment\Students\CStudents.json");
 
-        // GET: api/Student/5
-        [HttpGet("{id}", Name = "Get")]
-        public ActionResult<Student> GetStudentById(int id)
-        {
-            StreamReader r = new StreamReader(@"E:\BootcampApril2021\Syed_Ali_Hasan_INT_060\Assignment1\Assignment1\Resource\Student.json");
             string json = r.ReadToEnd();
-            List<Student> items = JsonConvert.DeserializeObject<List<Student>>(json);
-            var ans = items.Where(x => x.Id == id).FirstOrDefault();
-            return ans;
+            List<Students> items = JsonConvert.DeserializeObject<List<Students>>(json);
+            var y=items.Where(x => x.Id==5).FirstOrDefault().Name;
+            return y;
         }
 
-        // GET: api/Student/5
-        [HttpGet]
-        [Route("/api/Student/GetAllStudents")]
-        public ActionResult<List<Student>> GetAllStudents()
+
+        // GET api/values/id
+        [HttpGet("{Id}")]
+        public ActionResult<Students> GetStudentsById(int Id)
         {
-            StreamReader r = new StreamReader(@"E:\BootcampApril2021\Syed_Ali_Hasan_INT_060\Assignment1\Assignment1\Resource\Student.json");
-            string json = r.ReadToEnd();
-            List<Student> items = JsonConvert.DeserializeObject<List<Student>>(json);
-            return items;
-        }
+            StreamReader r = new StreamReader(@"C:\Users\mayank.aggarwal\source\repos\APIAssignment\APIAssignment\Students\CStudents.json");
 
-        //POST: api/Student
+            string json = r.ReadToEnd();
+            List<Students> items = JsonConvert.DeserializeObject<List<Students>>(json);
+            return items.Where(x => x.Id == Id).FirstOrDefault();
+        }
+        //POST: api/Values
         [HttpPost]
-        public void Post([FromBody]Student student)
+        public void Post([FromBody] Students student)
         {
-            var filePath = @"E:\BootcampApril2021\Syed_Ali_Hasan_INT_060\Assignment1\Assignment1\Resource\Student.json";
+            var filePath = @"C:\Users\mayank.aggarwal\source\repos\APIAssignment\APIAssignment\Students\CStudents.json";
             // Read existing json data
             var jsonData = System.IO.File.ReadAllText(filePath);
             // De-serialize to object or create new list
-            var studentList = JsonConvert.DeserializeObject<List<Student>>(jsonData)
-                                  ?? new List<Student>();
+            var studentList = JsonConvert.DeserializeObject<List<Students>>(jsonData)
+                                  ?? new List<Students>();
 
             studentList.Add(student);
             jsonData = JsonConvert.SerializeObject(studentList);
             System.IO.File.WriteAllText(filePath, jsonData);
         }
-
-        // PUT api/Student/5
+        // PUT api/Values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Student student)
+        public void Put(int id, [FromBody] Students student)
         {
-            var filePath = @"E:\BootcampApril2021\Syed_Ali_Hasan_INT_060\Assignment1\Assignment1\Resource\Student.json";
+            var filePath = @"C:\Users\mayank.aggarwal\source\repos\APIAssignment\APIAssignment\Students\CStudents.json";
             // Read existing json data
             var jsonData = System.IO.File.ReadAllText(filePath);
             // De-serialize to object or create new list
-            var studentList = JsonConvert.DeserializeObject<List<Student>>(jsonData)
-                                  ?? new List<Student>();
+            var studentList = JsonConvert.DeserializeObject<List<Students>>(jsonData)
+                                  ?? new List<Students>();
 
             for (int i = 0; i < studentList.Capacity; i++)
             {
@@ -85,17 +81,16 @@ namespace Assignment1.Controllers
             jsonData = JsonConvert.SerializeObject(studentList);
             System.IO.File.WriteAllText(filePath, jsonData);
         }
-
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var filePath = @"E:\BootcampApril2021\Syed_Ali_Hasan_INT_060\Assignment1\Assignment1\Resource\Student.json";
+            var filePath = @"C:\Users\mayank.aggarwal\source\repos\APIAssignment\APIAssignment\Students\CStudents.json";
+
             // Read existing json data
             var jsonData = System.IO.File.ReadAllText(filePath);
             // De-serialize to object or create new list
-            var studentList = JsonConvert.DeserializeObject<List<Student>>(jsonData)
-                                  ?? new List<Student>();
+            var studentList = JsonConvert.DeserializeObject<List<Students>>(jsonData)
+                                  ?? new List<Students>();
 
             for (int i = 0; i < studentList.Capacity; i++)
             {
@@ -107,6 +102,17 @@ namespace Assignment1.Controllers
             }
             jsonData = JsonConvert.SerializeObject(studentList);
             System.IO.File.WriteAllText(filePath, jsonData);
+        }
+
+
+
+
+    }
+
+    class JavaScriptSerializer
+    {
+        public JavaScriptSerializer()
+        {
         }
     }
 }
