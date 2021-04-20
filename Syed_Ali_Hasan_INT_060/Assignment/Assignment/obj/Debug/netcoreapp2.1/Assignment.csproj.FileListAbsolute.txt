@@ -1,0 +1,14 @@
+E:\NET PRACTICE\Assignment\Assignment\bin\Debug\netcoreapp2.1\Assignment.deps.json
+E:\NET PRACTICE\Assignment\Assignment\bin\Debug\netcoreapp2.1\Assignment.runtimeconfig.json
+E:\NET PRACTICE\Assignment\Assignment\bin\Debug\netcoreapp2.1\Assignment.runtimeconfig.dev.json
+E:\NET PRACTICE\Assignment\Assignment\bin\Debug\netcoreapp2.1\Assignment.dll
+E:\NET PRACTICE\Assignment\Assignment\bin\Debug\netcoreapp2.1\Assignment.pdb
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.csprojAssemblyReference.cache
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.csproj.CoreCompileInputs.cache
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.RazorAssemblyInfo.cache
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.RazorAssemblyInfo.cs
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.AssemblyInfoInputs.cache
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.AssemblyInfo.cs
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.RazorTargetAssemblyInfo.cache
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.dll
+E:\NET PRACTICE\Assignment\Assignment\obj\Debug\netcoreapp2.1\Assignment.pdb
