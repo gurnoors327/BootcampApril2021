@@ -90,7 +90,7 @@ namespace Assign.Controllers
             for (int i = 0; i < studentList.Capacity; i++)
             {
                 if (studentList[i].Id == id)
-                {
+                { 
                     studentList[i].Id = student.Id;
                     studentList[i].Name = student.Name;
                     studentList[i].Department = student.Department;
